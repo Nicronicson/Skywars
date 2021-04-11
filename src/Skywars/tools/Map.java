@@ -62,11 +62,11 @@ public class Map {
             player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
             complete = false;
         }
-        if(spawnpoints == null){
+        if(spawnpoints.isEmpty()){
             player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_SPAWNPOINTS)));
             complete = false;
         }
-        if(chests == null || middleChests == null){
+        if(chests.isEmpty() || middleChests.isEmpty()){
             player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_CHESTS)));
             complete = false;
         }

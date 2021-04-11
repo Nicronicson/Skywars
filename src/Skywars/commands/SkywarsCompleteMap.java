@@ -22,6 +22,7 @@ public class SkywarsCompleteMap implements CommandExecutor {
                     if(Mapbuilder.getMap().saveMap(player)){
                         Mapbuilder.setMap(null);
                         Mapbuilder.setPlayer(null);
+                        player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_MAP_SAVED)));
                     }
                 } else {
                     player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));

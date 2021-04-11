@@ -19,6 +19,7 @@ public class SkywarsCreateMap implements CommandExecutor {
                 if (Mapbuilder.getPlayer() == null) {
                     Mapbuilder.setPlayer(player);
                     Mapbuilder.setMap(new Map(player.getWorld().getName()));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_MAP_CREATED)));
                 } else {
                     player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_WORLD_IN_CREATION)));
                 }
