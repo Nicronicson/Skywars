@@ -32,6 +32,10 @@ commands:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
+  skywarstrashmap:
+    description: Change your speed
+    usage: /s [speed]
+    permission: skywars.command.create
 permissions:
   skywars.command.create:
     default: op

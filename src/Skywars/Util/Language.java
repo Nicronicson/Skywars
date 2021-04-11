@@ -26,6 +26,7 @@ public class Language {
         lang.put(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL, "The map couldn't be saved, because the file couldn't be found.");
         lang.put(LanguageKeyword.ERR_WORLD_IN_CREATION, "A skywars world is currently in the creation proccess.");
         lang.put(LanguageKeyword.ERR_NO_WORLD_IN_CREATION, "No world is currently in creation or you aren't the owner of it. Please create a world first.");
+        lang.put(LanguageKeyword.CMD_MAP_TRASHED, "Skywarsmap was trashed successfully.");
     }
 
 }

@@ -24,6 +24,7 @@ public class Main extends JavaPlugin{
         getCommand("skywarssetpos1").setExecutor(new SkywarsSetPos1());
         getCommand("skywarssetpos2").setExecutor(new SkywarsSetPos2());
         getCommand("skywarssetspawn").setExecutor(new SkywarsSetSpawn());
+        getCommand("skywarstrashmap").setExecutor(new SkywarsTrashMap());
     }
 
     private void registerListeners(){
