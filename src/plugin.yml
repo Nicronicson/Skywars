@@ -4,31 +4,31 @@ name: Skywars
 authors: [JustFloooo, Nicronicson]
 api-version: 1.13
 commands:
-  skywars complete map:
+  skywarscompletemap:
     description: Complete the creation of a map
     usage: /skywars complete map
     permission: skywars.command.create
-  skywars create map:
+  skywarscreatemap:
     description: Create an Skywars map
     usage: /skywars create map
     permission: skywars.command.create
-  skywars reset spawnpoints:
+  skywarsresetspawnpoints:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywars scan chests:
+  skywarsscanchests:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywars set pos1:
+  skywarssetpos1:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywars set pos2:
+  skywarssetpos2:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywars set spawn:
+  skywarssetspawn:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create

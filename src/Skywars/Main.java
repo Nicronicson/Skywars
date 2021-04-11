@@ -15,13 +15,13 @@ public class Main extends JavaPlugin{
     }
 
     private void registerCommands(){
-        getCommand("skywars complete map").setExecutor(new SkywarsCompleteMap());
-        getCommand("skywars create map").setExecutor(new SkywarsCreateMap());
-        getCommand("skywars reset spawnpoints").setExecutor(new SkywarsResetSpawnpoints());
-        getCommand("skywars scan chests").setExecutor(new SkywarsScanChests());
-        getCommand("skywars set pos1").setExecutor(new SkywarsSetPos1());
-        getCommand("skywars set pos2").setExecutor(new SkywarsSetPos2());
-        getCommand("skywars set spawn").setExecutor(new SkywarsSetSpawn());
+        getCommand("skywarscompletemap").setExecutor(new SkywarsCompleteMap());
+        getCommand("skywarscreatemap").setExecutor(new SkywarsCreateMap());
+        getCommand("skywarsresetspawnpoints").setExecutor(new SkywarsResetSpawnpoints());
+        getCommand("skywarsscanchests").setExecutor(new SkywarsScanChests());
+        getCommand("skywarssetpos1").setExecutor(new SkywarsSetPos1());
+        getCommand("skywarssetpos2").setExecutor(new SkywarsSetPos2());
+        getCommand("skywarssetspawn").setExecutor(new SkywarsSetSpawn());
     }
 
     private void registerListeners(){
