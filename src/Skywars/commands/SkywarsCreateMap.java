@@ -16,7 +16,7 @@ public class SkywarsCreateMap implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if(strings.length == 0) {
-                if (Mapbuilder.getPlayer() != null) {
+                if (Mapbuilder.getPlayer() == null) {
                     Mapbuilder.setPlayer(player);
                     Mapbuilder.setMap(new Map(player.getWorld().getName()));
                 } else {

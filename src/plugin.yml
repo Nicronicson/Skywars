@@ -10,7 +10,7 @@ commands:
     permission: skywars.command.create
   skywarscreatemap:
     description: Create an Skywars map
-    usage: /skywars create map
+    usage: /skywarscreatemap
     permission: skywars.command.create
   skywarsresetspawnpoints:
     description: Change your speed
