@@ -2,6 +2,7 @@ package Skywars;
 
 import Skywars.Util.Language;
 import Skywars.commands.*;
+import Skywars.listeners.SkywarsMapbuildListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin{
@@ -28,6 +29,6 @@ public class Main extends JavaPlugin{
     }
 
     private void registerListeners(){
-        //getServer().getPluginManager().registerEvents(new VanishListener(vanish), this);
+        getServer().getPluginManager().registerEvents(new SkywarsMapbuildListener(), this);
     }
 }

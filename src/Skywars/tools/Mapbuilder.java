@@ -21,4 +21,9 @@ public class Mapbuilder {
     public static void setMap(Map map) {
         Mapbuilder.map = map;
     }
+
+    public static void reset(){
+        setPlayer(null);
+        setMap(null);
+    }
 }

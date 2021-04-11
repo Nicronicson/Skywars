@@ -16,8 +16,7 @@ public class SkywarsTrashMap implements CommandExecutor {
             if(strings.length == 0) {
                 //Überprüfe, ob der richtige Spieler auf eine vorhandene Map zugreift
                 if(Mapbuilder.getPlayer() != null && Mapbuilder.getPlayer() == player){
-                    Mapbuilder.setMap(null);
-                    Mapbuilder.setPlayer(null);
+                    Mapbuilder.reset();
                     player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_MAP_TRASHED)));
                 } else {
                     player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));

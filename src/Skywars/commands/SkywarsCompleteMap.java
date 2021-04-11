@@ -20,8 +20,7 @@ public class SkywarsCompleteMap implements CommandExecutor {
                 if(Mapbuilder.getPlayer() != null && Mapbuilder.getPlayer() == player){
                     //Beim erfolgreichen Abspeichern werden Spieler und Map aus dem Zwischenspeicher gelöscht
                     if(Mapbuilder.getMap().saveMap(player)){
-                        Mapbuilder.setMap(null);
-                        Mapbuilder.setPlayer(null);
+                        Mapbuilder.reset();
                         player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_MAP_SAVED)));
                     }
                 } else {
