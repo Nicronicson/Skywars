@@ -59,15 +59,15 @@ public class Map {
     public boolean saveMap(Player player){
         boolean complete = true;
         if(pos1 == null || pos2 == null){
-            player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
             complete = false;
         }
         if(spawnpoints == null){
-            player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_SPAWNPOINTS));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_SPAWNPOINTS)));
             complete = false;
         }
         if(chests == null || middleChests == null){
-            player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_CHESTS));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_CHESTS)));
             complete = false;
         }
         if(complete) {
@@ -76,7 +76,7 @@ public class Map {
                 Yaml yaml = new Yaml();
                 yaml.dump(this, writer);
             } catch (FileNotFoundException exception) {
-                player.sendMessage(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL));
+                player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
             }
         } else {
             return false;

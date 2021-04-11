@@ -1,5 +1,6 @@
 package Skywars;
 
+import Skywars.Util.Language;
 import Skywars.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -7,6 +8,7 @@ public class Main extends JavaPlugin{
     public void onEnable(){
         getLogger().info("Loading Essence Plugin.");
         getLogger().info("Downloading Essence Language.");
+        Language.putStringsInHashmap();
         getLogger().info("Loading Essence Commands.");
         registerCommands();
         getLogger().info("Loading Essence Listeners.");
