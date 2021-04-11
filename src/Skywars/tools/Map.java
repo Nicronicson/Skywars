@@ -4,6 +4,7 @@ import Skywars.Structs.Coordinate;
 import Skywars.Util.Language;
 import Skywars.Util.LanguageKeyword;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -55,18 +56,18 @@ public class Map {
 
     }
 
-    public void saveMap(){
+    public boolean saveMap(Player player){
         boolean complete = true;
         if(pos1 == null || pos2 == null){
-            Bukkit.getServer().broadcastMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
             complete = false;
         }
         if(spawnpoints == null){
-            Bukkit.getServer().broadcastMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_SPAWNPOINTS)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_SPAWNPOINTS)));
             complete = false;
         }
         if(chests == null || middleChests == null){
-            Bukkit.getServer().broadcastMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_CHESTS)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_CHESTS)));
             complete = false;
         }
         if(complete) {
@@ -75,8 +76,11 @@ public class Map {
                 Yaml yaml = new Yaml();
                 yaml.dump(this, writer);
             } catch (FileNotFoundException exception) {
-                Bukkit.getServer().broadcastMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
+                player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
             }
+        } else {
+            return false;
         }
+        return true;
     }
 }

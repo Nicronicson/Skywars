@@ -1,27 +1,37 @@
-main: essence.Main
+main: Skywars.Main
 version: 0.1
-name: Essence
+name: Skywars
 authors: [JustFloooo, Nicronicson]
 api-version: 1.13
 commands:
-  gm:
-    description: Fast gamemode switcher
-    usage: /gm [0-3]
-    permission: essence.command.gm
-  v:
-    description: Make yourself invisible to others
-    usage: /v [PlayerName] [s]
-    aliases: vanish
-    permission: essence.command.vanish
-  s:
+  skywars complete map:
+    description: Complete the creation of a map
+    usage: /skywars complete map
+    permission: skywars.command.create
+  skywars create map:
+    description: Create an Skywars map
+    usage: /skywars create map
+    permission: skywars.command.create
+  skywars reset spawnpoints:
     description: Change your speed
     usage: /s [speed]
-    aliases: speed
-    permission: essence.command.speed
+    permission: skywars.command.create
+  skywars scan chests:
+    description: Change your speed
+    usage: /s [speed]
+    permission: skywars.command.create
+  skywars set pos1:
+    description: Change your speed
+    usage: /s [speed]
+    permission: skywars.command.create
+  skywars set pos2:
+    description: Change your speed
+    usage: /s [speed]
+    permission: skywars.command.create
+  skywars set spawn:
+    description: Change your speed
+    usage: /s [speed]
+    permission: skywars.command.create
 permissions:
-  essence.command.gm:
-    default: op
-  essence.command.vanish:
-    default: op
-  essence.command.speed:
+  skywars.command.create:
     default: op

@@ -1,4 +1,12 @@
 package Skywars.commands;
 
-public class SkywarsResetSpawnpoints {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+public class SkywarsResetSpawnpoints implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        return false;
+    }
 }
