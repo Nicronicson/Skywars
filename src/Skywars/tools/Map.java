@@ -23,20 +23,30 @@ public class Map {
 
     public Map(String mapname){
         this.mapname = mapname;
+        this.pos1 = new Coordinate();
+        this.pos2 = new Coordinate();
         this.spawnpoints = new ArrayList<>();
         this.chests = new ArrayList<>();
         this.middleChests = new ArrayList<>();
     }
 
-    public void setPos1(Coordinate pos1){
-        pos1 = pos1;
+    public void setPos1(int x, int y, int z){
+        pos1.x = x;
+        pos1.y = y;
+        pos1.z = z;
     }
 
-    public void setPos2(Coordinate pos2){
-        pos2 = pos2;
+    public void setPos2(int x, int y, int z){
+        pos2.x = x;
+        pos2.y = y;
+        pos2.z = z;
     }
 
-    public void addSpawnpoint(Coordinate spawnpoint){
+    public void addSpawnpoint(int x, int y, int z){
+        Coordinate spawnpoint = new Coordinate();
+        spawnpoint.x = x;
+        spawnpoint.y = y;
+        spawnpoint.z = z;
         spawnpoints.add(spawnpoint);
     }
 
@@ -56,9 +66,17 @@ public class Map {
 
     }
 
+    public boolean positionsAvailable(){
+        if(pos1 == null || pos2 == null){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public boolean saveMap(Player player){
         boolean complete = true;
-        if(pos1 == null || pos2 == null){
+        if(!positionsAvailable()){
             player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
             complete = false;
         }
