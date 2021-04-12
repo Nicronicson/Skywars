@@ -28,10 +28,8 @@ public class SkywarsScanChests implements CommandExecutor {
                     } else {
                         List<Location> chests = new ArrayList<>();
                         List<Location> middleChests = new ArrayList<>();
-                        player.sendMessage("1");
                         Location searchAt = Mapbuilder.getMap().getPos1().clone();
                         Vector searchVector = Mapbuilder.getMap().getPos2().toVector().subtract(searchAt.toVector());
-                        player.sendMessage("2");
                         if(searchVector.getBlockX() < 0){
                             searchAt.setX(searchAt.getBlockX()+searchVector.getBlockX());
                             searchVector.setX(searchVector.getBlockX()*-1);
@@ -44,23 +42,19 @@ public class SkywarsScanChests implements CommandExecutor {
                             searchAt.setZ(searchAt.getBlockZ()+searchVector.getBlockZ());
                             searchVector.setZ(searchVector.getBlockZ()*-1);
                         }
-                        player.sendMessage("3");
                         for(int x = searchAt.getBlockX(); x <= searchAt.getBlockX()+searchVector.getBlockX(); x++){
                             for(int y = searchAt.getBlockY(); y <= searchAt.getBlockY()+searchVector.getBlockY(); y++){
                                 for(int z = searchAt.getBlockZ(); z <= searchAt.getBlockZ()+searchVector.getBlockZ(); z++){
-                                    player.sendMessage("4");
-                                    player.sendMessage(x+y+z+"");
+                                    player.sendMessage(x+","+y+","+z);
                                     if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("CHEST")) == 0) {
                                         chests.add(new Location(null, x, y, z));
                                     }
-                                    player.sendMessage("5");
                                     if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("ENDER_CHEST")) == 0) {
                                         middleChests.add(new Location(null, x, y, z));
                                     }
                                 }
                             }
                         }
-                        player.sendMessage("6");
                         Mapbuilder.getMap().setChests(chests);
                         Mapbuilder.getMap().setMiddleChests(middleChests);
                         player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SCAN_CHESTS)));

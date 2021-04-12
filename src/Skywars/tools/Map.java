@@ -7,19 +7,17 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
-    final private String mapname;
+    private String mapname;
     private Location middle;
     private Location pos1;
     private Location pos2;
-    final private List<Location> spawnpoints;
+
+    private List<Location> spawnpoints;
     private List<Location> chests;
     private List<Location> middleChests;
 
@@ -33,6 +31,29 @@ public class Map {
         this.middleChests = new ArrayList<>();
     }
 
+    public void setMapname(String mapname) {
+        this.mapname = mapname;
+    }
+
+    public void setSpawnpoints(List<Location> spawnpoints) {
+        this.spawnpoints = spawnpoints;
+    }
+
+    public String getMapname(){
+        return mapname;
+    }
+
+    public List<Location> getSpawnpoints() {
+        return spawnpoints;
+    }
+
+    public List<Location> getChests() {
+        return chests;
+    }
+
+    public List<Location> getMiddleChests() {
+        return middleChests;
+    }
 
     public Location getMiddle() {
         return middle;
@@ -102,13 +123,15 @@ public class Map {
         }
         if(complete) {
             try {
-                new File("/SkyWars/" + mapname + ".yml").createNewFile();
-                PrintWriter writer = new PrintWriter("/SkyWars/" + mapname + ".yml");
+                //TODO: Check if the directory and/or the .yml file are already present
+                new File("./plugins/SkyWars").mkdir();
+                PrintWriter writer = new PrintWriter("./plugins/SkyWars/" + mapname + ".yml");
                 Yaml yaml = new Yaml();
                 yaml.dump(this, writer);
             }
             catch (IOException exception){
                 player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
+                return false;
             }
         } else {
             return false;
