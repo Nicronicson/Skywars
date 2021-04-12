@@ -9,6 +9,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,10 +102,12 @@ public class Map {
         }
         if(complete) {
             try {
-                PrintWriter writer = new PrintWriter(new File("/SkyWars/" + mapname + ".yml"));
+                new File("/SkyWars/" + mapname + ".yml").createNewFile();
+                PrintWriter writer = new PrintWriter("/SkyWars/" + mapname + ".yml");
                 Yaml yaml = new Yaml();
                 yaml.dump(this, writer);
-            } catch (FileNotFoundException exception) {
+            }
+            catch (IOException exception){
                 player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
             }
         } else {

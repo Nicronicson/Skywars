@@ -29,7 +29,7 @@ public class Language {
         lang.put(LanguageKeyword.ERR_NO_WORLD_IN_CREATION, "No world is currently in creation or you aren't the owner of it. Please create a world first.");
         lang.put(LanguageKeyword.CMD_MAP_TRASHED, "Skywarsmap was TRASHED successfully.");
         lang.put(LanguageKeyword.CMD_MAP_CREATED, "Skywarsmap was CREATED successfully.");
-        lang.put(LanguageKeyword.CMD_MAP_SAVED, "Skywarsmap was TRASHED successfully.");
+        lang.put(LanguageKeyword.CMD_MAP_SAVED, "Skywarsmap was SAVED successfully.");
         lang.put(LanguageKeyword.CMD_ADD_SPAWNPOINT, "Spawnpoint was ADDED successfully.");
         lang.put(LanguageKeyword.CMD_RESET_SPAWNPOINTS, "Spawnpoints were DELETED successfully.");
         lang.put(LanguageKeyword.CMD_SCAN_CHESTS, "Chest-Scan was DONE successfully.");
