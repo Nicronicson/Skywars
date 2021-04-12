@@ -1,9 +1,9 @@
 package Skywars.tools;
 
-import Skywars.Structs.Coordinate;
 import Skywars.Util.Language;
 import Skywars.Util.LanguageKeyword;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.yaml.snakeyaml.Yaml;
 
@@ -14,39 +14,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
-    private String mapname;
-    private Coordinate pos1;
-    private Coordinate pos2;
-    private List<Coordinate> spawnpoints;
-    private List<Coordinate> chests;
-    private List<Coordinate> middleChests;
+    final private String mapname;
+    private Location middle;
+    private Location pos1;
+    private Location pos2;
+    final private List<Location> spawnpoints;
+    private List<Location> chests;
+    private List<Location> middleChests;
 
     public Map(String mapname){
         this.mapname = mapname;
-        this.pos1 = new Coordinate();
-        this.pos2 = new Coordinate();
+        this.middle = null;
+        this.pos1 = null;
+        this.pos2 = null;
         this.spawnpoints = new ArrayList<>();
         this.chests = new ArrayList<>();
         this.middleChests = new ArrayList<>();
     }
 
-    public void setPos1(int x, int y, int z){
-        pos1.x = x;
-        pos1.y = y;
-        pos1.z = z;
+
+    public Location getMiddle() {
+        return middle;
     }
 
-    public void setPos2(int x, int y, int z){
-        pos2.x = x;
-        pos2.y = y;
-        pos2.z = z;
+    public void setMiddle(Location middle) {
+        this.middle = middle;
     }
 
-    public void addSpawnpoint(int x, int y, int z){
-        Coordinate spawnpoint = new Coordinate();
-        spawnpoint.x = x;
-        spawnpoint.y = y;
-        spawnpoint.z = z;
+    public void setPos1(Location pos1) {
+        this.pos1 = pos1;
+    }
+
+    public Location getPos1(){
+        return pos1;
+    }
+
+    public void setPos2(Location pos2) {
+        this.pos2 = pos2;
+    }
+
+    public Location getPos2(){
+        return pos2;
+    }
+
+    public void addSpawnpoint(Location spawnpoint){
         spawnpoints.add(spawnpoint);
     }
 
@@ -54,11 +65,11 @@ public class Map {
         spawnpoints.clear();
     }
 
-    public void setChests(List<Coordinate> chests){
+    public void setChests(List<Location> chests){
         this.chests = chests;
     }
 
-    public void setMiddleChests(List<Coordinate> middleChests){
+    public void setMiddleChests(List<Location> middleChests){
         this.middleChests = middleChests;
     }
 

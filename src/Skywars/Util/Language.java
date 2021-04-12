@@ -21,6 +21,7 @@ public class Language {
 
     public static void putStringsInHashmap(){
         lang.put(LanguageKeyword.ERR_NO_POSITION, "Please MARK the map borders first.");
+        lang.put(LanguageKeyword.ERR_NO_MIDDLE, "Please MARK the middle of the map first.");
         lang.put(LanguageKeyword.ERR_NO_SPAWNPOINTS, "Please SET the spawnpoints first.");
         lang.put(LanguageKeyword.ERR_NO_CHESTS, "Please SCAN for chests first. If it still won't work please check if any chests are placed.");
         lang.put(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL, "The map couldn't be saved, because the file couldn't be found.");
@@ -34,6 +35,7 @@ public class Language {
         lang.put(LanguageKeyword.CMD_SCAN_CHESTS, "Chest-Scan was DONE successfully.");
         lang.put(LanguageKeyword.CMD_SET_POS1, "Pos1 was SET successfully.");
         lang.put(LanguageKeyword.CMD_SET_POS2, "Pos2 was SET successfully.");
+        lang.put(LanguageKeyword.CMD_SET_MIDDLE, "Middle was SET successfully.");
     }
 
 }

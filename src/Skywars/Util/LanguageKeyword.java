@@ -3,6 +3,7 @@ package Skywars.Util;
 public enum LanguageKeyword {
     ERR_NO_POSITION,
     ERR_NO_SPAWNPOINTS,
+    ERR_NO_MIDDLE,
     ERR_NO_CHESTS,
     ERR_SAVING_UNSUCCESSFUL,
     ERR_WORLD_IN_CREATION,
@@ -12,6 +13,7 @@ public enum LanguageKeyword {
     CMD_MAP_SAVED,
     CMD_RESET_SPAWNPOINTS,
     CMD_SCAN_CHESTS,
+    CMD_SET_MIDDLE,
     CMD_SET_POS1,
     CMD_SET_POS2,
     CMD_ADD_SPAWNPOINT

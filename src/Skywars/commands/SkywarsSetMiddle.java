@@ -9,7 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SkywarsSetPos1 implements CommandExecutor {
+public class SkywarsSetMiddle implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
@@ -17,8 +17,8 @@ public class SkywarsSetPos1 implements CommandExecutor {
             if(strings.length == 0) {
                 //Überprüfe, ob der richtige Spieler auf eine vorhandene Map zugreift
                 if(Mapbuilder.getPlayer() != null && Mapbuilder.getPlayer() == player){
-                    Mapbuilder.getMap().setPos1(new Location(null, player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ()));
-                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SET_POS1)));
+                    Mapbuilder.getMap().setMiddle(new Location(null, player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ()));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SET_MIDDLE)));
                 } else {
                     player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));
                 }
