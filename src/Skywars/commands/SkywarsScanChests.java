@@ -49,11 +49,12 @@ public class SkywarsScanChests implements CommandExecutor {
                             for(int y = searchAt.getBlockY(); y <= searchAt.getBlockY()+searchVector.getBlockY(); y++){
                                 for(int z = searchAt.getBlockZ(); z <= searchAt.getBlockZ()+searchVector.getBlockZ(); z++){
                                     player.sendMessage("4");
-                                    if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("Chest")) == 0) {
+                                    player.sendMessage(x+y+z+"");
+                                    if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("CHEST")) == 0) {
                                         chests.add(new Location(null, x, y, z));
                                     }
                                     player.sendMessage("5");
-                                    if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("EnderChest")) == 0) {
+                                    if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("ENDER_CHEST")) == 0) {
                                         middleChests.add(new Location(null, x, y, z));
                                     }
                                 }
