@@ -1,49 +1,57 @@
-main: Skywars.Main
+main: SkywarsAdmin.Main
 version: 0.1
 name: Skywars
 authors: [JustFloooo, Nicronicson]
 api-version: 1.13
 commands:
-  skywarscompletemap:
+  skywarsadmin:
+    description: Skywars CCT
+    usage: /skywars [Parameters]
+    permission: skywars.command.create
+  skywarsadmin map:
+    description: Map CCT
+    usage: /skywars map [Parameters]
+    permission: skywars.command.create
+  skywarsadmin map complete:
     description: Complete the creation of a map
-    usage: /skywars complete map
+    usage: /skywars map complete
     permission: skywars.command.create
-  skywarscreatemap:
+  skywarsadmin map create:
     description: Create an Skywars map
-    usage: /skywarscreatemap
+    usage: /skywars map create
     permission: skywars.command.create
-  skywarsresetspawnpoints:
+  skywarsadmin map resetspawnpoints:
+    description: Reset the spawnpoints of the map
+    usage: /skywars resetspawnpoints
+    permission: skywars.command.create
+  skywarsadmin map scanchests:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywarsscanchests:
+  skywarsadmin setmiddle:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywarssetpos1:
+  skywarsadmin map setpos1:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywarssetpos2:
+  skywarsadmin map setpos2:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywarssetspawn:
+  skywarsadmin map setspawn:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywarstrashmap:
+  skywarsadmin map trash:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
-  skywarssetmiddle:
-    description: Change your speed
-    usage: /s [speed]
-    permission: skywars.command.create
-  testcommand:
-    description: Change your speed
-    usage: /s [speed]
-    permission: skywars.command.create
+  #testcommand:
+    #description: Test
+    #usage: /testcommand
+    #permission: skywars.command.create
 permissions:
   skywars.command.create:
     default: op

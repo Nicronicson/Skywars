@@ -1,10 +1,20 @@
-package Skywars.tools;
+package SkywarsAdmin.tools;
 
 import org.bukkit.entity.Player;
 
 public class Mapbuilder {
     private static Player player;
     private static Map map;
+
+    private static boolean override = false;
+
+    public static boolean isOverride() {
+        return override;
+    }
+
+    public static void setOverride(boolean override) {
+        Mapbuilder.override = override;
+    }
 
     public static Player getPlayer() {
         return player;
@@ -25,5 +35,6 @@ public class Mapbuilder {
     public static void reset(){
         setPlayer(null);
         setMap(null);
+        setOverride(false);
     }
 }

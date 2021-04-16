@@ -1,2 +1,2 @@
-# Skywars
-A very problematic Skywars Plugin
+# SkywarsAdmin
+A very problematic SkywarsAdmin Plugin

@@ -1,17 +1,14 @@
-package Skywars.commands;
+package SkywarsAdmin.commands.commands.Skywars.Map;
 
-import Skywars.Util.Language;
-import Skywars.Util.LanguageKeyword;
-import Skywars.tools.Map;
-import Skywars.tools.Mapbuilder;
-import org.bukkit.Bukkit;
+import SkywarsAdmin.Util.Language;
+import SkywarsAdmin.Util.LanguageKeyword;
+import SkywarsAdmin.tools.Map;
+import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SkywarsCreateMap implements CommandExecutor {
-    @Override
+public class Create{
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;

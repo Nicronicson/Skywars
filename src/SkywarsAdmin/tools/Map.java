@@ -1,8 +1,7 @@
-package Skywars.tools;
+package SkywarsAdmin.tools;
 
-import Skywars.Util.Language;
-import Skywars.Util.LanguageKeyword;
-import org.bukkit.Bukkit;
+import SkywarsAdmin.Util.Language;
+import SkywarsAdmin.Util.LanguageKeyword;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.yaml.snakeyaml.Yaml;
@@ -96,7 +95,7 @@ public class Map {
     }
 
     public void loadMap(){
-
+        //TODO: Load Map
     }
 
     public boolean positionsAvailable(){
@@ -123,19 +122,26 @@ public class Map {
         }
         if(complete) {
             try {
-                //TODO: Check if the directory and/or the .yml file are already present
-                new File("./plugins/SkyWars").mkdir();
-                PrintWriter writer = new PrintWriter("./plugins/SkyWars/" + mapname + ".yml");
-                Yaml yaml = new Yaml();
-                yaml.dump(this, writer);
+                //TODO: Should be Okay!!! (Check if the directory and/or the .yml file are already present)
+                new File("./plugins/SkyWarsAdmin").mkdir();
+                if(!new File("./plugins/SkyWarsAdmin/" + mapname + ".yml").exists() || Mapbuilder.isOverride()) {
+                    PrintWriter writer = new PrintWriter("./plugins/SkyWarsAdmin/" + mapname + ".yml");
+                    Yaml yaml = new Yaml();
+                    yaml.dump(this, writer);
+                } else {
+                    Mapbuilder.setOverride(true);
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_MAP_EXISTING)));
+                    return false;
+                }
             }
             catch (IOException exception){
                 player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
                 return false;
             }
+            return true;
+
         } else {
             return false;
         }
-        return true;
     }
 }

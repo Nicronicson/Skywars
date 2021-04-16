@@ -1,8 +1,8 @@
-package Skywars.listeners;
+package SkywarsAdmin.listeners;
 
-import Skywars.Util.Language;
-import Skywars.Util.LanguageKeyword;
-import Skywars.tools.Mapbuilder;
+import SkywarsAdmin.Util.Language;
+import SkywarsAdmin.Util.LanguageKeyword;
+import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;

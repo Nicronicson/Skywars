@@ -1,13 +1,11 @@
-package Skywars.commands;
+package SkywarsAdmin.commands.commands.Skywars.Map;
 
-import Skywars.Util.Language;
-import Skywars.Util.LanguageKeyword;
-import Skywars.tools.Map;
-import Skywars.tools.Mapbuilder;
+import SkywarsAdmin.Util.Language;
+import SkywarsAdmin.Util.LanguageKeyword;
+import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -15,8 +13,7 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SkywarsScanChests implements CommandExecutor {
-    @Override
+public class Scanchests{
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;

@@ -1,4 +1,4 @@
-package Skywars.Util;
+package SkywarsAdmin.Util;
 
 public enum LanguageKeyword {
     ERR_NO_POSITION,
@@ -6,6 +6,7 @@ public enum LanguageKeyword {
     ERR_NO_MIDDLE,
     ERR_NO_CHESTS,
     ERR_SAVING_UNSUCCESSFUL,
+    ERR_MAP_EXISTING,
     ERR_WORLD_IN_CREATION,
     ERR_NO_WORLD_IN_CREATION,
     CMD_MAP_TRASHED,
