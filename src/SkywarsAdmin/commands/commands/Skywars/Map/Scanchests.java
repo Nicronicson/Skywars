@@ -1,7 +1,6 @@
 package SkywarsAdmin.commands.commands.Skywars.Map;
 
 import SkywarsAdmin.Util.Language;
-import SkywarsAdmin.Util.LanguageKeyword;
 import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -21,7 +20,7 @@ public class Scanchests{
                 //Überprüfe, ob der richtige Spieler auf eine vorhandene Map zugreift
                 if(Mapbuilder.getPlayer() != null && Mapbuilder.getPlayer() == player){
                     if(!Mapbuilder.getMap().positionsAvailable()){
-                        player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
+                        player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_POSITION)));
                     } else {
                         List<Location> chests = new ArrayList<>();
                         List<Location> middleChests = new ArrayList<>();
@@ -54,10 +53,10 @@ public class Scanchests{
                         }
                         Mapbuilder.getMap().setChests(chests);
                         Mapbuilder.getMap().setMiddleChests(middleChests);
-                        player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_SCAN_CHESTS)));
+                        player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_SCAN_CHESTS)));
                     }
                 } else {
-                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));
                 }
             } else {
                 return false;

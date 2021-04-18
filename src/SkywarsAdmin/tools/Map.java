@@ -1,7 +1,6 @@
 package SkywarsAdmin.tools;
 
 import SkywarsAdmin.Util.Language;
-import SkywarsAdmin.Util.LanguageKeyword;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.yaml.snakeyaml.Yaml;
@@ -109,33 +108,35 @@ public class Map {
     public boolean saveMap(Player player){
         boolean complete = true;
         if(!positionsAvailable()){
-            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_POSITION)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_POSITION)));
             complete = false;
         }
         if(spawnpoints.isEmpty()){
-            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_SPAWNPOINTS)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_SPAWNPOINTS)));
             complete = false;
         }
         if(chests.isEmpty() || middleChests.isEmpty()){
-            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_CHESTS)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_CHESTS)));
             complete = false;
         }
         if(complete) {
             try {
                 //TODO: Should be Okay!!! (Check if the directory and/or the .yml file are already present)
                 new File("./plugins/SkyWarsAdmin").mkdir();
-                if(!new File("./plugins/SkyWarsAdmin/" + mapname + ".yml").exists() || Mapbuilder.isOverride()) {
-                    PrintWriter writer = new PrintWriter("./plugins/SkyWarsAdmin/" + mapname + ".yml");
+                if(!new File("./plugins/SkyWarsAdmin/" + mapname + "-map" + ".yml").exists() || Mapbuilder.isOverride()) {
+                    PrintWriter writer = new PrintWriter("./plugins/SkyWarsAdmin/" + mapname  + "-map" + ".yml");
                     Yaml yaml = new Yaml();
                     yaml.dump(this, writer);
+                    Mapbuilder.reset();
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_MAP_SAVED)));
                 } else {
                     Mapbuilder.setOverride(true);
-                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_MAP_EXISTING)));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_MAP_EXISTING)));
                     return false;
                 }
             }
             catch (IOException exception){
-                player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
+                player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_SAVING_UNSUCCESSFUL_Map)));
                 return false;
             }
             return true;

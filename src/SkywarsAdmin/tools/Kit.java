@@ -1,109 +1,164 @@
 package SkywarsAdmin.tools;
 
 import SkywarsAdmin.Util.Language;
-import SkywarsAdmin.Util.LanguageKeyword;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class Kit {
-    private Item leftHand;
+    private ItemStack leftHand;
+    private Map<String, Integer> leftHandENC;
 
-    private Item helmet;
-    private Item chestplate;
-    private Item trousers;
-    private Item shoes;
+    private ItemStack helmet;
+    private Map<String, Integer> helmetENC;
+    private ItemStack chestplate;
+    private Map<String, Integer> chestplateENC;
+    private ItemStack leggings;
+    private Map<String, Integer> leggingsENC;
+    private ItemStack boots;
+    private Map<String, Integer> bootsENC;
 
-    private Item[] inventory;
-    private Item[] hotbar;
+    private ItemStack[] inventory;
+    private ArrayList<Map<String, Integer>> inventoryENC;
 
-    public Kit(Item helmet, Item chestplate, Item leftHand, Item trousers, Item shoes, Item[] inventory, Item[] hotbar) {
-        this.helmet = helmet;
-        this.chestplate = chestplate;
+    public Kit(ItemStack leftHand, Map<String, Integer> leftHandENC, ItemStack helmet, Map<String, Integer> helmetENC, ItemStack chestplate, Map<String, Integer> chestplateENC, ItemStack leggings, Map<String, Integer> leggingsENC, ItemStack boots, Map<String, Integer> bootsENC, ItemStack[] inventory, ArrayList<Map<String, Integer>> inventoryENC) {
         this.leftHand = leftHand;
-        this.trousers = trousers;
-        this.shoes = shoes;
-        this.inventory = inventory;
-        this.hotbar = hotbar;
-    }
-
-    public Item getHelmet() {
-        return helmet;
-    }
-
-    public void setHelmet(Item helmet) {
+        this.leftHandENC = leftHandENC;
         this.helmet = helmet;
-    }
-
-    public Item getChestplate() {
-        return chestplate;
-    }
-
-    public void setChestplate(Item chestplate) {
+        this.helmetENC = helmetENC;
         this.chestplate = chestplate;
+        this.chestplateENC = chestplateENC;
+        this.leggings = leggings;
+        this.leggingsENC = leggingsENC;
+        this.boots = boots;
+        this.bootsENC = bootsENC;
+        this.inventory = inventory;
+        this.inventoryENC = inventoryENC;
     }
 
-    public Item getLeftHand() {
+    public ItemStack getLeftHand() {
         return leftHand;
     }
 
-    public void setLeftHand(Item leftHand) {
+    public void setLeftHand(ItemStack leftHand) {
         this.leftHand = leftHand;
     }
 
-    public Item getTrousers() {
-        return trousers;
+    public Map<String, Integer> getLeftHandENC() {
+        return leftHandENC;
     }
 
-    public void setTrousers(Item trousers) {
-        this.trousers = trousers;
+    public void setLeftHandENC(Map<String, Integer> leftHandENC) {
+        this.leftHandENC = leftHandENC;
     }
 
-    public Item getShoes() {
-        return shoes;
+    public ItemStack getHelmet() {
+        return helmet;
     }
 
-    public void setShoes(Item shoes) {
-        this.shoes = shoes;
+    public void setHelmet(ItemStack helmet) {
+        this.helmet = helmet;
     }
 
-    public Item[] getInventory() {
+    public Map<String, Integer> getHelmetENC() {
+        return helmetENC;
+    }
+
+    public void setHelmetENC(Map<String, Integer> helmetENC) {
+        this.helmetENC = helmetENC;
+    }
+
+    public ItemStack getChestplate() {
+        return chestplate;
+    }
+
+    public void setChestplate(ItemStack chestplate) {
+        this.chestplate = chestplate;
+    }
+
+    public Map<String, Integer> getChestplateENC() {
+        return chestplateENC;
+    }
+
+    public void setChestplateENC(Map<String, Integer> chestplateENC) {
+        this.chestplateENC = chestplateENC;
+    }
+
+    public ItemStack getLeggings() {
+        return leggings;
+    }
+
+    public void setLeggings(ItemStack leggings) {
+        this.leggings = leggings;
+    }
+
+    public Map<String, Integer> getLeggingsENC() {
+        return leggingsENC;
+    }
+
+    public void setLeggingsENC(Map<String, Integer> leggingsENC) {
+        this.leggingsENC = leggingsENC;
+    }
+
+    public ItemStack getBoots() {
+        return boots;
+    }
+
+    public void setBoots(ItemStack boots) {
+        this.boots = boots;
+    }
+
+    public Map<String, Integer> getBootsENC() {
+        return bootsENC;
+    }
+
+    public void setBootsENC(Map<String, Integer> bootsENC) {
+        this.bootsENC = bootsENC;
+    }
+
+    public ItemStack[] getInventory() {
         return inventory;
     }
 
-    public void setInventory(Item[] inventory) {
+    public void setInventory(ItemStack[] inventory) {
         this.inventory = inventory;
     }
 
-    public Item[] getHotbar() {
-        return hotbar;
+    public ArrayList<Map<String, Integer>> getInventoryENC() {
+        return inventoryENC;
     }
 
-    public void setHotbar(Item[] hotbar) {
-        this.hotbar = hotbar;
+    public void setInventoryENC(ArrayList<Map<String, Integer>> inventoryENC) {
+        this.inventoryENC = inventoryENC;
     }
 
     public boolean save(String name, Player player){
         try {
             //TODO: Should be Okay!!! (Check if the directory and/or the .yml file are already present)
             new File("./plugins/SkyWarsAdmin").mkdir();
-            if(!new File("./plugins/SkyWarsAdmin/" + name + ".yml").exists() || Kitbuilder.isOverride()) {
-                PrintWriter writer = new PrintWriter("./plugins/SkyWarsAdmin/" + name + ".yml");
+            if(!new File("./plugins/SkyWarsAdmin/" + name + "-kit" + ".yml").exists() || Kitbuilder.isOverride()) {
+                PrintWriter writer = new PrintWriter("./plugins/SkyWarsAdmin/" + name + "-kit" + ".yml");
                 Yaml yaml = new Yaml();
                 yaml.dump(this, writer);
+                player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_KIT_SAVED)));
                 Kitbuilder.reset();
             } else {
                 Kitbuilder.setOverride(true);
-                player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_MAP_EXISTING)));
+                Kitbuilder.setPlayer(player);
+                Kitbuilder.setName(name);
+                Kitbuilder.setTime();
+                player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_KIT_EXISTING)));
                 return false;
             }
         }
         catch (IOException exception){
-            player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL)));
+            player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_SAVING_UNSUCCESSFUL_KIT)));
             return false;
         }
         return true;

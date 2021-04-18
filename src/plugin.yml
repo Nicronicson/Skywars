@@ -4,14 +4,18 @@ name: Skywars
 authors: [JustFloooo, Nicronicson]
 api-version: 1.13
 commands:
+  #Skywars
   skywarsadmin:
     description: Skywars CCT
     usage: /skywars [Parameters]
     permission: skywars.command.create
+
+  #Map
   skywarsadmin map:
     description: Map CCT
     usage: /skywars map [Parameters]
     permission: skywars.command.create
+
   skywarsadmin map complete:
     description: Complete the creation of a map
     usage: /skywars map complete
@@ -48,6 +52,13 @@ commands:
     description: Change your speed
     usage: /s [speed]
     permission: skywars.command.create
+
+  #Kit
+  skywarsadmin kit save:
+    description: Change your speed
+    usage: /s [speed]
+    permission: skywars.command.create
+
   #testcommand:
     #description: Test
     #usage: /testcommand

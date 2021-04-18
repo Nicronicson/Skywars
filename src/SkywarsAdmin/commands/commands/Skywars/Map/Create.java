@@ -1,7 +1,6 @@
 package SkywarsAdmin.commands.commands.Skywars.Map;
 
 import SkywarsAdmin.Util.Language;
-import SkywarsAdmin.Util.LanguageKeyword;
 import SkywarsAdmin.tools.Map;
 import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.command.Command;
@@ -16,9 +15,9 @@ public class Create{
                 if (Mapbuilder.getPlayer() == null) {
                     Mapbuilder.setPlayer(player);
                     Mapbuilder.setMap(new Map(player.getWorld().getName()));
-                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_MAP_CREATED)));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_MAP_CREATED)));
                 } else {
-                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_WORLD_IN_CREATION)));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_WORLD_IN_CREATION)));
                 }
             } else {
                 return false;

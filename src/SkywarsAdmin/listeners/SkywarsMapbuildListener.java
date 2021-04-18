@@ -1,7 +1,6 @@
 package SkywarsAdmin.listeners;
 
 import SkywarsAdmin.Util.Language;
-import SkywarsAdmin.Util.LanguageKeyword;
 import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,7 +14,7 @@ public class SkywarsMapbuildListener implements Listener {
  public void onPlayerChangedWorldEvent(PlayerChangedWorldEvent event){
      if(Mapbuilder.getPlayer() == event.getPlayer()){
          Mapbuilder.reset();
-         event.getPlayer().sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_MAP_TRASHED)));
+         event.getPlayer().sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_MAP_TRASHED)));
      }
  }
 }

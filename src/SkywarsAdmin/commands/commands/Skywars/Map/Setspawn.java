@@ -1,7 +1,6 @@
 package SkywarsAdmin.commands.commands.Skywars.Map;
 
 import SkywarsAdmin.Util.Language;
-import SkywarsAdmin.Util.LanguageKeyword;
 import SkywarsAdmin.tools.Mapbuilder;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -25,12 +24,12 @@ public class Setspawn{
                         Vector spawnDirectionVector = middleVector.subtract(spawnpointVector);
                         spawnpoint.setDirection(spawnDirectionVector);
                         Mapbuilder.getMap().addSpawnpoint(spawnpoint);
-                        player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.CMD_ADD_SPAWNPOINT)));
+                        player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_ADD_SPAWNPOINT)));
                     } else {
-                        player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_MIDDLE)));
+                        player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_MIDDLE)));
                     }
                 } else {
-                    player.sendMessage(Language.format(Language.getStringFromKeyword(LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));
                 }
             } else {
                 return false;
