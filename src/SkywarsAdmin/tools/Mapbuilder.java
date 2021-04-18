@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 
 public class Mapbuilder {
     private static Player player;
-    private static Map map;
+    private static MapAdmin map;
 
     private static boolean override = false;
 
@@ -24,11 +24,11 @@ public class Mapbuilder {
         Mapbuilder.player = Player;
     }
 
-    public static Map getMap() {
+    public static MapAdmin getMap() {
         return map;
     }
 
-    public static void setMap(Map map) {
+    public static void setMap(MapAdmin map) {
         Mapbuilder.map = map;
     }
 

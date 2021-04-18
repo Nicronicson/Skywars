@@ -1,5 +1,6 @@
 package SkywarsAdmin;
 
+import SkywarsAdmin.commands.TestCommand;
 import SkywarsAdmin.commands.commands.SkywarsCCT;
 import SkywarsAdmin.listeners.SkywarsMapbuildListener;
 import org.bukkit.plugin.java.JavaPlugin;

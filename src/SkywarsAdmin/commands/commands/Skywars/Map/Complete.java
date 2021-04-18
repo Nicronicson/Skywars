@@ -14,7 +14,7 @@ public class Complete{
                 //Überprüfe, ob der richtige Spieler auf eine vorhandene Map zugreift
                 if(Mapbuilder.getPlayer() != null && Mapbuilder.getPlayer() == player){
                     //Beim erfolgreichen Abspeichern werden Spieler und Map aus dem Zwischenspeicher gelöscht
-                    Mapbuilder.getMap().saveMap(player);
+                    Mapbuilder.getMap().save(player);
                 } else {
                     player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_WORLD_IN_CREATION)));
                 }
