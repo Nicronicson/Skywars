@@ -18,6 +18,9 @@ public class SkywarsCCT extends CCT implements CommandExecutor{
             if(strings[0].equals("kit")) {
                 return new KitCCT().onCommand(commandSender, command, s, removeCommand(strings));
             }
+            if(strings[0].equals("chest")) {
+                return new KitCCT().onCommand(commandSender, command, s, removeCommand(strings));
+            }
         }
         return false;
     }

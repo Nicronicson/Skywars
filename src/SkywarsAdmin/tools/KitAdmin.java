@@ -20,13 +20,13 @@ public class KitAdmin extends Kit {
     }
 
     public boolean save(String name, Player player){
-        String pathname = "./plugins/SkyWarsAdmin";
-        String filname = name + "-kit" + ".yml";
+        String pathname = "./plugins/SkyWarsAdmin/Kit";
+        String filename = name + "-kit" + ".yml";
 
         try {
-            new File(pathname).mkdir();
-            if(!new File(pathname + "/" + filname).exists() || Kitbuilder.isOverride()) {
-                PrintWriter writer = new PrintWriter(pathname + "/" + filname);
+            new File(pathname).mkdirs();
+            if(!new File(pathname + "/" + filename).exists() || Kitbuilder.isOverride()) {
+                PrintWriter writer = new PrintWriter(pathname + "/" + filename);
                 Yaml yaml = new Yaml();
                 yaml.dump(this, writer);
                 player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.CMD_KIT_SAVED)));

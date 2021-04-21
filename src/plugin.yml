@@ -7,62 +7,74 @@ commands:
   #Skywars
   skywarsadmin:
     description: Skywars CCT
-    usage: /skywars [Parameters]
+    usage: /skywarsadmin [Parameters]
     permission: skywars.command.create
 
   #Map
   skywarsadmin map:
     description: Map CCT
-    usage: /skywars map [Parameters]
+    usage: /skywarsadmin map [Parameters]
     permission: skywars.command.create
 
   skywarsadmin map complete:
     description: Complete the creation of a map
-    usage: /skywars map complete
+    usage: /skywarsadmin map complete
     permission: skywars.command.create
   skywarsadmin map create:
     description: Create an Skywars map
-    usage: /skywars map create
+    usage: /skywarsadmin map create
     permission: skywars.command.create
   skywarsadmin map resetspawnpoints:
     description: Reset the spawnpoints of the map
-    usage: /skywars resetspawnpoints
+    usage: /skywarsadmin resetspawnpoints
     permission: skywars.command.create
   skywarsadmin map scanchests:
-    description: Change your speed
-    usage: /s [speed]
+    description: Scan for chests
+    usage: /skywarsadmin map scanchests
     permission: skywars.command.create
   skywarsadmin setmiddle:
-    description: Change your speed
-    usage: /s [speed]
+    description: Set the middle at your position
+    usage: /skywarsadmin map setmiddle
     permission: skywars.command.create
   skywarsadmin map setpos1:
-    description: Change your speed
-    usage: /s [speed]
+    description: Set pos1 at your position
+    usage: /skywarsadmin map setpos1
     permission: skywars.command.create
   skywarsadmin map setpos2:
-    description: Change your speed
-    usage: /s [speed]
+    description: Set pos2 at your position
+    usage: /skywarsadmin map setpos2
     permission: skywars.command.create
   skywarsadmin map setspawn:
-    description: Change your speed
-    usage: /s [speed]
+    description: Add a spawnlocation at your position
+    usage: /skywarsadmin map setspawn
     permission: skywars.command.create
   skywarsadmin map trash:
-    description: Change your speed
-    usage: /s [speed]
+    description: Trash your none completed map
+    usage: /skywarsadmin map trash
     permission: skywars.command.create
 
   #Kit
   skywarsadmin kit save:
     description: Change your speed
-    usage: /s [speed]
+    usage: /skywarsadmin [speed]
+    permission: skywars.command.create
+
+  #Chest
+  skywarsadmin chest:
+    description: Chest CCT
+    usage: /skywarsadmin chest [Parameters]
+    permission: skywars.command.create
+
+  skywarsadmin kit additem:
+    description: Add a item to be found in SkywarsChests
+    usage: /skywarsadmin chest additem chance[0-100%] middlechance[0-100%]
     permission: skywars.command.create
 
   #testcommand:
     #description: Test
     #usage: /testcommand
     #permission: skywars.command.create
+
 permissions:
   skywars.command.create:
     default: op

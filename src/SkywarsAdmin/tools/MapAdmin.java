@@ -29,13 +29,13 @@ public class MapAdmin extends Map{
             complete = false;
         }
         if(complete) {
-            String pathname = "./plugins/SkyWarsAdmin";
-            String filname = mapname + "-map" + ".yml";
+            String pathname = "./plugins/SkyWarsAdmin/Map";
+            String filename = mapname + "-map" + ".yml";
 
             try {
-                new File(pathname).mkdir();
-                if(!new File(pathname + "/" + filname).exists() || Mapbuilder.isOverride()) {
-                    PrintWriter writer = new PrintWriter(pathname + "/" + filname);
+                new File(pathname).mkdirs();
+                if(!new File(pathname + "/" + filename).exists() || Mapbuilder.isOverride()) {
+                    PrintWriter writer = new PrintWriter(pathname + "/" + filename);
                     Yaml yaml = new Yaml();
                     yaml.dump(this, writer);
                     Mapbuilder.reset();

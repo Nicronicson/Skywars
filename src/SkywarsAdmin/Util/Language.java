@@ -8,7 +8,7 @@ import java.util.Map;
 public class Language {
 
     public enum LanguageKeyword {
-        /** Map */
+        /* Map */
 
         //ERR
         ERR_NO_POSITION,
@@ -30,14 +30,21 @@ public class Language {
         CMD_SET_POS2,
         CMD_ADD_SPAWNPOINT,
 
-        /** Kit */
+        /* Kit */
 
         //ERR
         ERR_SAVING_UNSUCCESSFUL_KIT,
         ERR_KIT_EXISTING,
         ERR_NOT_THE_OWNER,
         //CMD
-        CMD_KIT_SAVED
+        CMD_KIT_SAVED,
+
+        /* Chest */
+
+        //ERR
+        ERR_SAVING_UNSUCCESSFUL_ChestEntry,
+        //CMD
+        CMD_ChestEntry_SAVED
     }
 
     private static final String SKYWARSPREFIX = ChatColor.AQUA + "SkywarsAdmin " + ChatColor.DARK_GRAY + "» ";
@@ -53,7 +60,7 @@ public class Language {
     }
 
     static {
-        /** Map */
+        /* Map */
 
         //ERR
         lang.put(LanguageKeyword.ERR_NO_POSITION, "Please MARK the map borders first.");
@@ -75,7 +82,7 @@ public class Language {
         lang.put(LanguageKeyword.CMD_SET_POS2, "Pos2 was SET successfully.");
         lang.put(LanguageKeyword.CMD_SET_MIDDLE, "Middle was SET successfully.");
 
-        /** Kit */
+        /* Kit */
 
         //ERR
         lang.put(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL_KIT, "The kit couldn't be saved, because the file couldn't be found or something went wrong like a banana which fell in a vulcano.");
@@ -83,5 +90,12 @@ public class Language {
         lang.put(LanguageKeyword.ERR_NOT_THE_OWNER, "You aren't the owner of the kit.");
         //CMD
         lang.put(LanguageKeyword.CMD_KIT_SAVED, "Skywarskit was SAVED successfully.");
+
+        /* Chest */
+
+        //ERR
+        lang.put(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL_ChestEntry, "The ChestEntry couldn't be saved, because the file couldn't be found or something went wrong like a banana which fell in a vulcano.");
+        //CMD
+        lang.put(LanguageKeyword.CMD_ChestEntry_SAVED, "ChestEntry was SAVED successfully.");
     }
 }
