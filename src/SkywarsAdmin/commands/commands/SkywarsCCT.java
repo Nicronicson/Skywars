@@ -1,6 +1,7 @@
 package SkywarsAdmin.commands.commands;
 
 import SkywarsAdmin.commands.CCT;
+import SkywarsAdmin.commands.commands.Skywars.ChestCCT;
 import SkywarsAdmin.commands.commands.Skywars.KitCCT;
 import SkywarsAdmin.commands.commands.Skywars.MapCCT;
 import org.bukkit.command.Command;
@@ -19,7 +20,7 @@ public class SkywarsCCT extends CCT implements CommandExecutor{
                 return new KitCCT().onCommand(commandSender, command, s, removeCommand(strings));
             }
             if(strings[0].equals("chest")) {
-                return new KitCCT().onCommand(commandSender, command, s, removeCommand(strings));
+                return new ChestCCT().onCommand(commandSender, command, s, removeCommand(strings));
             }
         }
         return false;

@@ -43,11 +43,12 @@ public class Language {
 
         //ERR
         ERR_SAVING_UNSUCCESSFUL_ChestEntry,
+        ERR_NO_ITEM,
         //CMD
         CMD_ChestEntry_SAVED
     }
 
-    private static final String SKYWARSPREFIX = ChatColor.AQUA + "SkywarsAdmin " + ChatColor.DARK_GRAY + "» ";
+    private static final String SKYWARSPREFIX = ChatColor.DARK_AQUA + "SkywarsAdmin " + ChatColor.DARK_GRAY + "» ";
 
     private static final Map<LanguageKeyword, String> lang = new HashMap<>();
 
@@ -95,6 +96,7 @@ public class Language {
 
         //ERR
         lang.put(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL_ChestEntry, "The ChestEntry couldn't be saved, because the file couldn't be found or something went wrong like a banana which fell in a vulcano.");
+        lang.put(LanguageKeyword.ERR_NO_ITEM, "No item was detected in your main hand.");
         //CMD
         lang.put(LanguageKeyword.CMD_ChestEntry_SAVED, "ChestEntry was SAVED successfully.");
     }

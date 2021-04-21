@@ -65,7 +65,7 @@ commands:
     usage: /skywarsadmin chest [Parameters]
     permission: skywars.command.create
 
-  skywarsadmin kit additem:
+  skywarsadmin chest additem:
     description: Add a item to be found in SkywarsChests
     usage: /skywarsadmin chest additem chance[0-100%] middlechance[0-100%]
     permission: skywars.command.create
