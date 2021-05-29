@@ -1,5 +1,6 @@
 package SkywarsAdmin.tools;
 
+import SkywarsAdmin.Main;
 import SkywarsCore.Map;
 
 import SkywarsAdmin.Util.Language;
@@ -16,6 +17,10 @@ public class MapAdmin extends Map{
 
     public boolean save(Player player){
         boolean complete = true;
+        if(teamsize <= 0){
+            player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_TEAMSIZE)));
+            complete = false;
+        }
         if(!positionsAvailable()){
             player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_POSITION)));
             complete = false;
@@ -29,7 +34,7 @@ public class MapAdmin extends Map{
             complete = false;
         }
         if(complete) {
-            String pathname = "./plugins/SkyWarsAdmin/Map";
+            String pathname = Main.PATH + "/Map";
             String filename = mapname + "-map" + ".yml";
 
             try {

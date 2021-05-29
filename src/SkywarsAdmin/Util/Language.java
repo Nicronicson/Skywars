@@ -19,6 +19,7 @@ public class Language {
         ERR_MAP_EXISTING,
         ERR_WORLD_IN_CREATION,
         ERR_NO_WORLD_IN_CREATION,
+        ERR_NO_TEAMSIZE,
         //CMD
         CMD_MAP_TRASHED,
         CMD_MAP_CREATED,
@@ -29,6 +30,7 @@ public class Language {
         CMD_SET_POS1,
         CMD_SET_POS2,
         CMD_ADD_SPAWNPOINT,
+        CMD_SET_TEAMSIZE,
 
         /* Kit */
 
@@ -36,6 +38,7 @@ public class Language {
         ERR_SAVING_UNSUCCESSFUL_KIT,
         ERR_KIT_EXISTING,
         ERR_NOT_THE_OWNER,
+        ERR_ITEM_DOESNT_EXISTS,
         //CMD
         CMD_KIT_SAVED,
 
@@ -72,6 +75,7 @@ public class Language {
         lang.put(LanguageKeyword.ERR_WORLD_IN_CREATION, "A skywars world is currently in the creation proccess.");
         lang.put(LanguageKeyword.ERR_NO_WORLD_IN_CREATION, "No world is currently in creation or you aren't the owner of it. Please create a world first.");
         lang.put(LanguageKeyword.ERR_MAP_EXISTING, "The Map already exists. Repeat command to override.");
+        lang.put(LanguageKeyword.ERR_NO_TEAMSIZE, "Please set the teamsize first.");
         //CMD
         lang.put(LanguageKeyword.CMD_MAP_TRASHED, "Skywarsmap was TRASHED successfully.");
         lang.put(LanguageKeyword.CMD_MAP_CREATED, "Skywarsmap was CREATED successfully.");
@@ -82,6 +86,7 @@ public class Language {
         lang.put(LanguageKeyword.CMD_SET_POS1, "Pos1 was SET successfully.");
         lang.put(LanguageKeyword.CMD_SET_POS2, "Pos2 was SET successfully.");
         lang.put(LanguageKeyword.CMD_SET_MIDDLE, "Middle was SET successfully.");
+        lang.put(LanguageKeyword.CMD_SET_TEAMSIZE, "The teamsize was SET successfully to %d.");
 
         /* Kit */
 
@@ -89,6 +94,7 @@ public class Language {
         lang.put(LanguageKeyword.ERR_SAVING_UNSUCCESSFUL_KIT, "The kit couldn't be saved, because the file couldn't be found or something went wrong like a banana which fell in a vulcano.");
         lang.put(LanguageKeyword.ERR_KIT_EXISTING, "The Kit already exists. Repeat command to override.");
         lang.put(LanguageKeyword.ERR_NOT_THE_OWNER, "You aren't the owner of the kit.");
+        lang.put(LanguageKeyword.ERR_ITEM_DOESNT_EXISTS, "The item you are referencing as the visual representation of the kit doesn't exist.");
         //CMD
         lang.put(LanguageKeyword.CMD_KIT_SAVED, "Skywarskit was SAVED successfully.");
 

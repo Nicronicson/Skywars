@@ -36,6 +36,9 @@ public class MapCCT extends CCT {
             if(strings[0].equals("trash")) {
                 return new Trash().onCommand(commandSender, command, s, removeCommand(strings));
             }
+            if(strings[0].equals("setteamsize")) {
+                return new SetTeamsize().onCommand(commandSender, command, s, removeCommand(strings));
+            }
         }
         return false;
     }

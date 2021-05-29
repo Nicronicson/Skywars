@@ -5,7 +5,12 @@ import SkywarsAdmin.commands.commands.SkywarsCCT;
 import SkywarsAdmin.listeners.SkywarsMapbuildListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public class Main extends JavaPlugin{
+
+    public static String PATH = "/home/minecraft/CloudNet/local/templates/SkywarsAdmin/default/plugins/SkyWarsAdmin";
+
     //TODO: TabCompleter
     public void onEnable(){
         getLogger().info("Loading Essence Plugin.");
@@ -18,7 +23,7 @@ public class Main extends JavaPlugin{
     }
 
     private void registerCommands(){
-        getCommand("skywarsadmin").setExecutor(new SkywarsCCT());
+        Objects.requireNonNull(getCommand("skywarsadmin")).setExecutor(new SkywarsCCT());
         //getCommand("testcommand").setExecutor(new TestCommand());
     }
 

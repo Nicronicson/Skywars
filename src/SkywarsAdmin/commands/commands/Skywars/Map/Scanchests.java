@@ -2,6 +2,8 @@ package SkywarsAdmin.commands.commands.Skywars.Map;
 
 import SkywarsAdmin.Util.Language;
 import SkywarsAdmin.tools.Mapbuilder;
+import com.mysql.jdbc.Buffer;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -47,6 +49,11 @@ public class Scanchests{
                                     }
                                     if(player.getWorld().getBlockAt(x, y, z).getType().compareTo(Material.getMaterial("ENDER_CHEST")) == 0) {
                                         middleChests.add(new Location(null, x, y, z));
+                                    }
+                                    try {
+                                        Thread.sleep(1);
+                                    } catch (Exception e){
+                                        Bukkit.broadcastMessage(e.getMessage());
                                     }
                                 }
                             }

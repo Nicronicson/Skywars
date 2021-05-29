@@ -4,6 +4,7 @@ import SkywarsAdmin.Util.Language;
 import SkywarsAdmin.tools.KitAdmin;
 import SkywarsAdmin.tools.Kitbuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -19,13 +20,26 @@ public class Save {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (strings.length == 1) {
+            if (strings.length == 2) {
+                ItemStack visual;
+                try{
+                    Material material = Material.getMaterial(strings[1]);
+                    if(material == null){
+                        player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_ITEM_DOESNT_EXISTS)));
+                        return true;
+                    }else{
+                        visual = new ItemStack(material);
+                    }
+                }catch (Exception e){
+                    player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_ITEM_DOESNT_EXISTS)));
+                    return true;
+                }
                 //Überprüfe, ob der richtige Spieler auf das Kit zugreift:
                 Kitbuilder.checkCurrent();
                 if (Kitbuilder.getPlayer() == null || (Kitbuilder.getPlayer() == player && strings[0].equals(Kitbuilder.getName()))) {
                     /* Left Hand */
-                    ItemStack leftHand = player.getInventory().getItemInOffHand();
-                    Map.Entry<Enchantment, Integer>[] leftHandPreENC = !leftHand.getType().isAir() ? leftHand.getEnchantments().entrySet().toArray(new Map.Entry[leftHand.getEnchantments().entrySet().size()]) : new Map.Entry[0]; //Sonderfall da die leftHand nie null ist, sondern Luft als lehre Hand interpretiert wird
+                    ItemStack leftHand = !player.getInventory().getItemInOffHand().getType().isAir() ? player.getInventory().getItemInOffHand() : null; //Sonderfall da die leftHand nie null ist, sondern Luft als lehre Hand interpretiert wird
+                    Map.Entry<Enchantment, Integer>[] leftHandPreENC = leftHand != null ? leftHand.getEnchantments().entrySet().toArray(new Map.Entry[leftHand.getEnchantments().entrySet().size()]) : new Map.Entry[0];
                     Map<String, Integer> leftHandENC = new HashMap<>();
                     for (Map.Entry<Enchantment, Integer> entry : leftHandPreENC) {
                         leftHandENC.put(entry.getKey().getKey().getKey(), entry.getValue());
@@ -78,7 +92,7 @@ public class Save {
                         inventoryENC.add(inventoryTempENC);
                     }
 
-                    new KitAdmin(leftHand, leftHandENC, helmet, helmetENC, chestplate, chestplateENC, leggings, leggingsENC, boots, bootsENC, inventory, inventoryENC).save(strings[0], player);
+                    new KitAdmin(strings[0], leftHand, leftHandENC, helmet, helmetENC, chestplate, chestplateENC, leggings, leggingsENC, boots, bootsENC, inventory, inventoryENC, visual).save(strings[0], player);
                 } else {
                     player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NOT_THE_OWNER)));
                 }

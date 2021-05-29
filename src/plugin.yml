@@ -48,6 +48,10 @@ commands:
     description: Add a spawnlocation at your position
     usage: /skywarsadmin map setspawn
     permission: skywars.command.create
+  skywarsadmin map setteamsize:
+    description: Trash your none completed map
+    usage: /skywarsadmin map trash
+    permission: skywars.command.create
   skywarsadmin map trash:
     description: Trash your none completed map
     usage: /skywarsadmin map trash
