@@ -7,15 +7,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class KitAdmin extends Kit {
 
@@ -40,9 +38,21 @@ public class KitAdmin extends Kit {
 
                 Map<String, Object> leftHandMap = new HashMap<>();
                 if (leftHand != null) {
-                    leftHandMap.put("type", leftHand.getType().getKey().getKey());
+                    leftHandMap.put("type", leftHand.getType().name());
                     leftHandMap.put("amount", leftHand.getAmount());
                     leftHandMap.put("durability", ((Damageable) leftHand.getItemMeta()).getDamage());
+                    leftHandMap.put("lore", leftHand.getItemMeta().getLore());
+
+                    if(leftHand.getItemMeta() instanceof PotionMeta){
+                        PotionMeta potionMeta = (PotionMeta) leftHand.getItemMeta();
+
+                        Map<String, Object> potionMetaMap = new HashMap<>();
+                        potionMetaMap.put("value", potionMeta.getBasePotionData().getType().name());
+                        potionMetaMap.put("extended", potionMeta.getBasePotionData().isExtended());
+                        potionMetaMap.put("upgraded", potionMeta.getBasePotionData().isUpgraded());
+
+                        leftHandMap.put("potionMeta", potionMetaMap);
+                    }
                 }
 
                 map.put("leftHand", leftHandMap);
@@ -50,9 +60,10 @@ public class KitAdmin extends Kit {
 
                 Map<String, Object> helmetMap = new HashMap<>();
                 if (helmet != null) {
-                    helmetMap.put("type", helmet.getType().getKey().getKey());
+                    helmetMap.put("type", helmet.getType().name());
                     helmetMap.put("amount", helmet.getAmount());
                     helmetMap.put("durability", ((Damageable) helmet.getItemMeta()).getDamage());
+                    helmetMap.put("lore", helmet.getItemMeta().getLore());
                 }
 
                 map.put("helmet", helmetMap);
@@ -60,9 +71,10 @@ public class KitAdmin extends Kit {
 
                 Map<String, Object> chestplateMap = new HashMap<>();
                 if (chestplate != null) {
-                    chestplateMap.put("type", chestplate.getType().getKey().getKey());
+                    chestplateMap.put("type", chestplate.getType().name());
                     chestplateMap.put("amount", chestplate.getAmount());
                     chestplateMap.put("durability", ((Damageable) chestplate.getItemMeta()).getDamage());
+                    chestplateMap.put("lore", chestplate.getItemMeta().getLore());
                 }
 
                 map.put("chestplate", chestplateMap);
@@ -70,9 +82,10 @@ public class KitAdmin extends Kit {
 
                 Map<String, Object> leggingsMap = new HashMap<>();
                 if (leggings != null) {
-                    leggingsMap.put("type", leggings.getType().getKey().getKey());
+                    leggingsMap.put("type", leggings.getType().name());
                     leggingsMap.put("amount", leggings.getAmount());
                     leggingsMap.put("durability", ((Damageable) leggings.getItemMeta()).getDamage());
+                    leggingsMap.put("lore", leggings.getItemMeta().getLore());
                 }
 
                 map.put("leggings", leggingsMap);
@@ -80,9 +93,10 @@ public class KitAdmin extends Kit {
 
                 Map<String, Object> bootsMap = new HashMap<>();
                 if (boots != null) {
-                    bootsMap.put("type", boots.getType().getKey().getKey());
+                    bootsMap.put("type", boots.getType().name());
                     bootsMap.put("amount", boots.getAmount());
                     bootsMap.put("durability", ((Damageable) boots.getItemMeta()).getDamage());
+                    bootsMap.put("lore", boots.getItemMeta().getLore());
                 }
 
                 map.put("boots", bootsMap);
@@ -90,20 +104,32 @@ public class KitAdmin extends Kit {
 
                 List<Map<String, Object>> inventoryMapList = new ArrayList<>();
 
-                for (ItemStack inventorySlot : inventory) {
+                Arrays.stream(inventory).forEachOrdered(inventorySlot -> {
                     Map<String, Object> inventorySlotMap = new HashMap<>();
                     if (inventorySlot != null) {
-                        inventorySlotMap.put("type", inventorySlot.getType().getKey().getKey());
+                        inventorySlotMap.put("type", inventorySlot.getType().name());
                         inventorySlotMap.put("amount", inventorySlot.getAmount());
                         inventorySlotMap.put("durability", ((Damageable) inventorySlot.getItemMeta()).getDamage());
+                        inventorySlotMap.put("lore", inventorySlot.getItemMeta().getLore());
+
+                        if(inventorySlot.getItemMeta() instanceof PotionMeta){
+                            PotionMeta potionMeta = (PotionMeta) inventorySlot.getItemMeta();
+
+                            Map<String, Object> potionMetaMap = new HashMap<>();
+                            potionMetaMap.put("value", potionMeta.getBasePotionData().getType().name());
+                            potionMetaMap.put("extended", potionMeta.getBasePotionData().isExtended());
+                            potionMetaMap.put("upgraded", potionMeta.getBasePotionData().isUpgraded());
+
+                            inventorySlotMap.put("potionMeta", potionMetaMap);
+                        }
                     }
                     inventoryMapList.add(inventorySlotMap);
-                }
+                });
 
                 map.put("inventory", inventoryMapList);
                 map.put("inventoryENC", inventoryENC);
 
-                map.put("visual", visual.getType().getKey().getKey());
+                map.put("visual", visual.getType().name());
 
                 yaml.dump(map, writer);
 

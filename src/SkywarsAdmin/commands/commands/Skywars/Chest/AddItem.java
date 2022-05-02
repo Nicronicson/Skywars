@@ -4,6 +4,7 @@ import SkywarsAdmin.Util.Language;
 import SkywarsAdmin.tools.ChestEntryAdmin;
 import SkywarsAdmin.tools.KitAdmin;
 import SkywarsAdmin.tools.Kitbuilder;
+import SkywarsCore.Rarity;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
@@ -19,7 +20,7 @@ public class AddItem {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1 || strings.length == 2) {
-                if(strings[0].matches("[+-]?\\d*(\\.\\d+)?") &&  Double.parseDouble(strings[0]) >= 0 && Double.parseDouble(strings[0]) <= 100 && (strings.length == 1 || strings[1].matches("[+-]?\\d*(\\.\\d+)?") && Double.parseDouble(strings[1]) >= 0 && Double.parseDouble(strings[1]) <= 100)){
+                if(strings[0].matches("[+-]?\\d*(\\.\\d+)?") &&  Integer.parseInt(strings[0]) >= 0 && Integer.parseInt(strings[0]) <= 3){
                     ItemStack item = player.getInventory().getItemInMainHand();
                     if(!item.getType().isAir()) {
                         Map.Entry<Enchantment, Integer>[] itemPreENC = !item.getType().isAir() ? item.getEnchantments().entrySet().toArray(new Map.Entry[item.getEnchantments().entrySet().size()]) : new Map.Entry[0]; //Sonderfall da die rightHand nie null ist, sondern Luft als lehre Hand interpretiert wird
@@ -28,7 +29,7 @@ public class AddItem {
                             itemENC.put(entry.getKey().getKey().getKey(), entry.getValue());
                         }
 
-                        new ChestEntryAdmin(item, itemENC, ((Number) (Double.parseDouble(strings[0]) * 100)).intValue(), ((Number) (Double.parseDouble(strings[1]) * 100)).intValue()).save(player); //0.01 = 1
+                        new ChestEntryAdmin(item, itemENC, Rarity.getById(Integer.parseInt(strings[0]))).save(player);
                     } else {
                         player.sendMessage(Language.format(Language.getStringFromKeyword(Language.LanguageKeyword.ERR_NO_ITEM)));
                     }

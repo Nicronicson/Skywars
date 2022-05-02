@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class Main extends JavaPlugin{
 
-    public static String PATH = "/home/minecraft/CloudNet/local/templates/SkywarsAdmin/default/plugins/SkyWarsAdmin";
+    public static String PATH = "/root/CloudNet/local/templates/SkywarsAdmin/default/plugins/SkyWarsAdmin";
 
     //TODO: TabCompleter
     public void onEnable(){
